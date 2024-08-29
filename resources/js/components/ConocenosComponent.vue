@@ -1,24 +1,45 @@
 <template>
-	<div class="row">
-		<div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-			<div class="col">
-				<div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-					<div class="my-3 py-3">
-						<h2 class="display-5">Another headline</h2>
-						<p class="lead">And an even wittier subheading.</p>
+	<div class="container-product my-5">
+		<div class="row">
+			<div class="col-md-4 mb-4" v-for="(product, key) in products" :key="key">
+				<div class="product-card">
+					<div class="image-container">
+						<img :src="product.path" class="image" width="250px;" height="250px;">
+						<div class="overlay">
+							<h5 class="title">{{ product.name }}</h5>
+							<button class="btn btn-primary" @click="details(product)">Ver detalles</button>
+						</div>
 					</div>
-					<div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-					<div class="my-3 p-3">
-						<h2 class="display-5">Another headline</h2>
-						<p class="lead">And an even wittier subheading.</p>
-					</div>
-					<div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
+
+<script>
+	export default {
+		data() {
+			return {
+				products: [],
+			}
+		},
+		mounted() {
+			this.getApi();
+		},
+		methods: {
+			details(product) {
+				console.log("detalle", product)
+				return window.location.href = `/product-details/${btoa(encodeURIComponent(JSON.stringify(product)))}`;
+			},
+			getApi() {
+				axios.get('/api/data')
+					.then(response => {
+						if(response.data.code === 200) {
+							this.products = response.data.lResult;
+						}
+					})
+					.catch(error => console.log(error))
+			}
+		},
+	}
+</script>

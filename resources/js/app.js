@@ -26,8 +26,9 @@ Vue.use(ElementUI);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('carousel', require('./components/CarouselPrincipal').default);
-Vue.component('tabs', require('./components/TabsComponent').default);
 Vue.component('conocenos', require('./components/ConocenosComponent').default);
+
+Vue.component('products-details', require('./components/products/DetailsComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

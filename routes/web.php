@@ -24,3 +24,9 @@ Route::get('/agenda-tu-cita', 'ViewsController@agenda')->name('agenda');
 Route::get('/conocenos', 'ViewsController@conocenos')->name('conocenos');
 Route::get('/contacto', 'ViewsController@contacto')->name('contacto');
 Route::get('/idioma', 'ViewsController@idioma')->name('idioma');
+
+Route::get('/api/data', 'ApiController@Api');
+Route::get('/api/data-carousel', 'ApiController@ApiCarousel');
+
+//productos
+Route::get('/product-details/{data}', 'ProductosController@details')->name('productos.details');

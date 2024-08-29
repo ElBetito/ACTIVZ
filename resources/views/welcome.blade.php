@@ -4,8 +4,6 @@
 
 	<carousel></carousel>
 
-	<tabs></tabs>
-
 	<conocenos></conocenos>
 
 @endsection

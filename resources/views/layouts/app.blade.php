@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'ACTIVZ') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,10 +21,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav id="dynamic-navbar" class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand logo-text" href="{{ url('/') }}">
+                    ACTIVZ HUEJUTLA
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,15 +45,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('conocenos') }}">CONÓCENOS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('agenda') }}">AGENDA TU CITA</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('contacto') }}">CONTACTO</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('idioma') }}">IDIOMA</a>
                             </li>
                             {{-- <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -92,13 +83,15 @@
             @yield('content')
         </main>
     </div>
-    <footer class="footer mt-auto py-3">
-        <div class="row">
-            <div class="col m-3">
-                <span class="text-muted">CareWalk  Todos los derechos reservados.</span>
-            </div>
-            <div class="col text-right mr-5">
-                <span class="text-muted">Aviso de privacidad</span>
+    <footer id="dynamic-navbar" class="footer mt-auto py-3 text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 d-flex align-items-center">
+                    <span class="">&copy; 2024 ACTIVZ-HUEJUTLA Todos los derechos reservados.</span>
+                </div>
+                <div class="col-6 text-right">
+                    <span class="">Aviso de privacidad</span>
+                </div>
             </div>
         </div>
     </footer>
